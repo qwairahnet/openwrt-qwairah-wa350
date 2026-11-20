@@ -52,5 +52,6 @@ cp -rf "$ROOT_DIR/files/." files/
 make -j"$(nproc)" || { make -j1 target/linux/install V=sc; exit 1; }
 
 mkdir -p "$ROOT_DIR/artifacts_out"
-cp -f bin/targets/ath79/generic/*cf-wa350*sysupgrade.bin bin/targets/ath79/generic/*cf-wa350*kernel.bin "$ROOT_DIR/artifacts_out/" 2>/dev/null || true
+ls -la bin/targets/ath79/generic/
+cp -f bin/targets/ath79/generic/*cf*wa350*sysupgrade.bin bin/targets/ath79/generic/*cf*wa350*kernel.bin "$ROOT_DIR/artifacts_out/"
 ls -lh "$ROOT_DIR/artifacts_out/"
