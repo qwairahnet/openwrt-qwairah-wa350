@@ -1,0 +1,9 @@
+{
+  "admin/qwairah": {"title": "QWAIRAH", "order": 15, "action": {"type": "firstchild"}},
+  "admin/qwairah/quicksetup": {"title": "Quick Setup", "order": 1, "action": {"type": "view", "path": "qwairah/quicksetup"}},
+  "admin/qwairah/scan": {"title": "Channel Scan", "order": 2, "action": {"type": "view", "path": "qwairah/scan"}},
+  "admin/qwairah/tools": {"title": "Ping & Speed", "order": 3, "action": {"type": "view", "path": "qwairah/tools"}},
+  "admin/qwairah/schedule": {"title": "Scheduled Reboot", "order": 4, "action": {"type": "view", "path": "qwairah/schedule"}},
+  "admin/qwairah/telegram": {"title": "Telegram Bot", "order": 5, "action": {"type": "view", "path": "qwairah/telegram"}},
+  "admin/services/qwairah_tg": {"title": "Telegram Bot", "order": 95, "action": {"type": "view", "path": "qwairah/telegram"}}
+}

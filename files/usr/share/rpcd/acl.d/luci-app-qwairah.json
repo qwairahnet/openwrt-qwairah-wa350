@@ -1,0 +1,39 @@
+{
+  "luci-app-qwairah": {
+    "description": "QWAIRAH full permissions",
+    "read": {
+      "file": {
+        "/etc/qwairah_tg.conf": ["read"],
+        "/etc/crontabs/root": ["read"],
+        "/proc/meminfo": ["read"],
+        "/proc/net/arp": ["read"],
+        "/tmp/dhcp.leases": ["read"],
+        "/tmp/sysinfo/model": ["read"],
+        "/sys/class/net": ["list", "read"],
+        "/sys/class/net/*": ["list", "read"],
+        "/sys/class/net/*/operstate": ["read"],
+        "/sys/class/net/*/speed": ["read"],
+        "/sys/class/net/*/duplex": ["read"],
+        "/sys/class/net/*/statistics/*": ["read"]
+      },
+      "uci": ["system", "luci", "network", "wireless", "dhcp", "qwairah_bot"]
+    },
+    "write": {
+      "file": {
+        "/etc/qwairah_tg.conf": ["write"],
+        "/etc/crontabs/root": ["write"]
+      },
+      "exec": {
+        "/bin/ping": ["exec"],
+        "/usr/bin/curl": ["exec"],
+        "/usr/bin/qwairah-tg-notify.sh": ["exec"],
+        "/usr/sbin/iw": ["exec"],
+        "/usr/bin/iwinfo": ["exec"],
+        "/sbin/wifi": ["exec"],
+        "/sbin/reboot": ["exec"],
+        "/etc/init.d/cron": ["exec"]
+      },
+      "uci": ["system", "luci", "network", "wireless", "dhcp", "qwairah_bot"]
+    }
+  }
+}

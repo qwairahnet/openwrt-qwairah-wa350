@@ -1,0 +1,33 @@
+name: Build QWAIRAH COMFAST CF-WA350 (ATH79 via CF-E375AC)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: true
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+
+      - name: Install Build Dependencies
+        run: sudo apt-get update && sudo apt-get install -y build-essential clang flex bison gawk gcc-multilib g++-multilib gettext git libncurses5-dev libssl-dev python3-distutils rsync unzip zlib1g-dev file wget
+
+      - name: Run Build Script
+        run: bash scripts/build_wa350.sh
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: QWAIRAH-COMFAST-CF-WA350-ATH79-Firmware
+          path: artifacts_out/*

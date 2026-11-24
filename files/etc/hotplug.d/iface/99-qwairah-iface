@@ -1,0 +1,7 @@
+#!/bin/sh
+[ -z "$INTERFACE" ] && exit 0
+if [ "$ACTION" = "ifup" ]; then
+    /usr/bin/qwairah-tg-notify.sh event "تم توصيل منفذ/واجهة: ${INTERFACE}" >/dev/null 2>&1 &
+elif [ "$ACTION" = "ifdown" ]; then
+    /usr/bin/qwairah-tg-notify.sh event "تم فصل منفذ/واجهة: ${INTERFACE}" >/dev/null 2>&1 &
+fi

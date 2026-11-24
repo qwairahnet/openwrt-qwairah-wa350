@@ -1,0 +1,17 @@
+#!/bin/sh /etc/rc.common
+
+START=99
+STOP=10
+
+SCRIPT="/usr/bin/qwairah-tg-notify.sh"
+
+start() {
+  [ -x "$SCRIPT" ] || return 0
+  /bin/sh "$SCRIPT" boot >/dev/null 2>&1 &
+}
+
+stop() {
+  [ -x "$SCRIPT" ] || return 0
+  /bin/sh "$SCRIPT" shutdown >/dev/null 2>&1
+  sleep 1
+}
